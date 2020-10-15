@@ -14,6 +14,9 @@ namespace LINQ_Demo
     {
         public static void Run()
         {
+            IEnumerable<int> enumerable = new List<int>();
+            var enumerator = enumerable.GetEnumerator();
+
             //Enumerable
             List<Person> people = new List<Person>()
             {
@@ -31,11 +34,11 @@ namespace LINQ_Demo
                 new Person("Carl", "Bildt", "Utrikesminister", 1949),
                 new Person("Margot", "Wallström", "Utrikesminister", 1954),
                 new Person("Ann", "Linde", "Utrikesminister", 1961),
-                new Person("Håkan", "Johansson", "Lärare", 1962),
+                new Person("Harlad", "Jansson", "Lärare", 1963),
             };
 
             var q1 = people
-                .Where(RetireesMethod); // Deferred execution
+                .Where(p => p.Age < 65 && p.Titel.ToLower()=="utrikesminister"); // Deferred execution
 
             foreach (var item in q1)
                 Console.WriteLine(item);
@@ -112,7 +115,7 @@ namespace LINQ_Demo
             Console.WriteLine("10------------------------------------------");
 
             var q11 = people
-                .Take(4);
+                .Take(3);
 
             foreach (var item in q11)
                 Console.WriteLine(item);
@@ -140,7 +143,7 @@ namespace LINQ_Demo
             Console.WriteLine("13------------------------------------------");
 
             var q14 = people
-                .GroupBy(ByTitleMethod);
+                .GroupBy(p => p.BirthYear);
 
             foreach (var group in q14)
             {
