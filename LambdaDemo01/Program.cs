@@ -7,10 +7,14 @@ namespace LambdaDemo01
         static void Main(string[] args)
         {
             // Named method...
-            TakeAMethodAsParameter(VoidParameterLess);
+            TakeAMethodAsParameter(null);
 
             //Lambda expression...
-            //TakeAMethodAsParameter();
+            TakeAMethodAsParameter(() =>
+            {
+                Console.WriteLine("Any old message");
+                Console.WriteLine("Another old message");
+            });
         }
 
         static void VoidParameterLess()
@@ -21,7 +25,7 @@ namespace LambdaDemo01
 
         static void TakeAMethodAsParameter(Action a)
         {
-            a();
+            a?.Invoke();
         }
     }
 }
