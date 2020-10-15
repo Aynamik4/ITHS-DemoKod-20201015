@@ -10,7 +10,11 @@ namespace LambdaDemo03
             TakeAMethodAsParameter(IntParameterless);
 
             //Lambda expression...
-            //TakeAMethodAsParameter();
+            TakeAMethodAsParameter(() =>
+            {
+                Console.Write("Vänligen ange din ålder: ");
+                return int.Parse(Console.ReadLine());
+            });
         }
 
         static int IntParameterless()

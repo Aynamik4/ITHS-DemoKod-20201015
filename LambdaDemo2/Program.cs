@@ -10,7 +10,10 @@ namespace LambdaDemo2
             TakeAMethodAsParameter(VoidWithParameters);
 
             //Lambda expression...
-            //TakeAMethodAsParameter();
+            TakeAMethodAsParameter((string name, int age) =>
+            {
+                Console.WriteLine($"{name} är {age} år gammal.");
+            });
         }
 
         static void VoidWithParameters(string name, int age)

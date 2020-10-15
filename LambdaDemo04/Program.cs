@@ -10,7 +10,12 @@ namespace LambdaDemo04
             TakeAMethodAsParameter(IntWithParameters);
 
             ////Lambda expression...
-            //TakeAMethodAsParameter();
+            TakeAMethodAsParameter((string name) =>
+            {
+                return name.Length;
+            });
+
+            TakeAMethodAsParameter(n => n.Length);
         }
 
         static int IntWithParameters(string name)

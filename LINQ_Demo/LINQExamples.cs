@@ -162,7 +162,6 @@ namespace LINQ_Demo
 
         static bool RetireesMethod(Person p)
         {
-            //p.LastName = "ANDERSSON";
             return p.Age >= 65;
         }
 
